@@ -22,13 +22,15 @@ def add_student(student_name,grade)
 end
 
 def grade(grade_num)
-  binding.pry
-  roster.select {|name, grades| grades == grade_num}
+  roster[grade_num]
   end
-end
 
-def sort
-  students_in_grade.sort
-end
+  def sort
+      sorted_students= {}
+      roster.each do |grade, students|
+        sorted_students[grade] = students.sort
+      end
+      sorted_students
+  end
 
 end
